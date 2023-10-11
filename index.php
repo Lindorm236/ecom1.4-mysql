@@ -12,4 +12,20 @@ if($conn){
 else{
     echo "Error : Not connected to the $db database";
 }
+
+//récupérer une ligne dans user
+$result1 =mysqli_query($conn, "SELECT * FROM user WHERE id=2");
+
+//avec fetch_row : tableau indexé permet de recuperer des données 
+$data1 = mysqli_fetch_row($result1);
+
+echo"<br>";
+echo"Premier fetch";
+echo"<br>";
+echo"<br>";
+var_dump($result1);
+echo"<br>";
+echo"<br>";
+var_dump($data1);
+
 ?>
