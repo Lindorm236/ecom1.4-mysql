@@ -1,5 +1,6 @@
 <?php
-$server = 'localhost';
+require_once('functions/functions.php');
+$server ='localhost';
 $userName ="root";
 $pwd="";
 $db="ecom1";
@@ -14,39 +15,39 @@ else{
 }
 
 //récupérer une ligne dans user
-$result1 =mysqli_query($conn, "SELECT * FROM user WHERE id=2");
+//$result1 =mysqli_query($conn, "SELECT * FROM user WHERE id=2");
 
 //avec fetch_row : tableau indexé permet de recuperer des données 
-$data1 = mysqli_fetch_row($result1);
+$data1 = selectUserByIndex(2);
 
 echo"<br>";
 echo"Premier fetch";
 echo"<br>";
 echo"<br>";
-var_dump($result1);
+//var_dump($result1);
 echo"<br>";
 echo"<br>";
 var_dump($data1);
 
 echo"<br>";
-echo"<br>";
+echo"<br>"; 
 
-$result2 =mysqli_query($conn, "SELECT * FROM user WHERE id=1");
+//$result2 =mysqli_query($conn, "SELECT * FROM user WHERE id=1");
 
 //avec fetch_row : tableau indexé permet de recuperer des données 
-$data2 = mysqli_fetch_row($result2);
+$data2 = selectUserByIdAssoc(1);
 
 echo"<br>";
 echo"Second fetch";
 echo"<br>";
 echo"<br>";
-var_dump($result2);
+//var_dump($result2);
 echo"<br>";
 echo"<br>";
 var_dump($data2);
 
 
-$result3 = mysqli_query($conn, "SELECT user_name, email, id FROM user WHERE id=1");
+/*$result3 = mysqli_query($conn, "SELECT user_name, email, id FROM user WHERE id=1");
 $data3 = mysqli_fetch_assoc($result3);
 
 
@@ -83,6 +84,12 @@ echo"</br></br>";
 var_dump($result4);
 echo"</br></br>";
 var_dump($data4);
+
+*/
+
+$data4 = getAllUserAssoc();
+
+showData('Quatrième fetch', $data4);
 
 
 ?>
