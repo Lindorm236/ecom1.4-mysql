@@ -28,7 +28,7 @@ function showData($title, $data){
 }
 
 
-//Fonction du quatrième fetch
+//Fonction du quatrième fetch et cinquième fetch
 function getAllUserAssoc(){
     global $conn;
     $result4 = mysqli_query($conn, "SELECT user_name, email, id FROM user");
@@ -42,4 +42,23 @@ function getAllUserAssoc(){
         
     };
     return $data4;
+}
+
+//Fonction du sixième fetch
+
+function getAllUserIndex(){
+
+
+    global $conn;
+    $result5 = mysqli_query($conn, "SELECT user_name, email, id FROM user");
+
+    $data5 =[];
+    $i = 0;
+    while($rangeeData = mysqli_fetch_row($result5)){
+        $data5[$i] = $rangeeData;
+        $i++;
+    
+        
+    };
+    return $data5;
 }

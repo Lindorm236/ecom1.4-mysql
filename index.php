@@ -91,5 +91,7 @@ $data4 = getAllUserAssoc();
 
 showData('Quatrième fetch', $data4);
 
+$data5 =getAllUserIndex();
 
+showData('Sixième fetch ', $data5);
 ?>
