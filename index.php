@@ -94,4 +94,30 @@ showData('Quatrième fetch', $data4);
 $data5 =getAllUserIndex();
 
 showData('Sixième fetch ', $data5);
+
+//$_POST['email'];
+$data7=[
+    'user_name' => 'pegasus',
+    'email' =>'pegasus@gmail.ca',
+    'pwd'=>''
+];
+
+$newUser= createUser($data7);
+echo"</br>";
+echo"</br>";
+
+$data8=[
+    'user_name' => 'jean',
+    'email' =>'pegasus@gmail.ca',
+    'pwd'=>'',
+    'id'=>'3'
+];
+
+updateUser($data8);
+
+
+
+
+
+
 ?>

@@ -62,3 +62,49 @@ function getAllUserIndex(){
     };
     return $data5;
 }
+
+function createUser($data){
+    global $conn;
+  $squery = "INSERT INTO user VALUES(NULL,?,?,?); ";
+
+  if($stmt =mysqli_prepare($conn, $squery)){
+
+    mysqli_stmt_bind_param($stmt, "sss", $data['user_name'], $data['email'], $data['pwd']);
+
+    $result =mysqli_stmt_execute($stmt);
+    echo"</br>";
+    echo"</br>";
+    echo"Coucou ";
+    echo"</br>";
+    echo"</br>";
+    var_dump($result);
+  }
+
+  return $result;
+}
+
+function updateUser($data){
+
+    global $conn;
+    $query="UPDATE user 
+            SET user_name=?,
+            email=?,
+            pwd=?
+            WHERE id=?  ";
+            if($stmt = mysqli_prepare($conn, $query)){
+                //Lecture des marqueurs
+                mysqli_stmt_bind_param($stmt,
+                "sssi",
+                $data['user_name'],
+                $data['email'],
+                $data['pwd'],
+                $data['id']);
+                //Exécution de requete
+                $result = mysqli_stmt_execute($stmt);
+                echo"<br><br>";
+                echo"Je suis changé";
+                echo"<br><br>";
+                var_dump($result);
+                return $result;
+            }
+};
